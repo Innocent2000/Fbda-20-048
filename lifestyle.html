@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Istanbul,Turkey</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+	.imgs{
+		border:1px solid #ddd;
+		border-radius: 4px;
+		padding: 5px;
+		width: 150px;
+
+	}
+	.imgs:hover{
+		box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+
+	}
+	.imgcont{
+		padding: 5px;
+		margin-right: 10px;
+		margin-top: 20px;
+		margin-left: 30px; 
+		margin-bottom: 20px;
+	}
+
+</style>
+</head>
+<body>
+
+   <!-- the div class names will help in css to call and edit the html code blocks -->
+	<div class="container" style="height: 150vh">
+		 <div class="navbar">
+		 	<h2>City of Istanbul</h2>
+		  <nav>
+		    <ul class="menuItems">
+		      <li><a href='index.html' data-item='Home'>Home</a></li>
+		      <li><a href='about.html' data-item='About'>About</a></li>
+		      <li><a href='lifestyle.html' data-item='Projects'>Lifestyle</a></li>
+		      <li><a href='events.html' data-item='Blog'>Events</a></li>
+		      <li><a href='connect with us.html' data-item='Contact'>Connect With Us</a></li>
+		    </ul>
+		  </nav>
+
+		 </div><br><br>
+		 <h2 style="text-align: center;">Lifestyle in Istanbul</h2><br>
+		 <p style="text-align: center;">Istanbul can be considered as Turkey’s capital of culture and fashion and offers many many shopping opportunities. The shopping variety of the city ranging from traditional and modern products makes Istanbul an attraction center for shopping lovers. As being a very big metropolis, travelers can easily find almost every world brand in the shopping malls and the districts of Istanbul.
+</p>
+		 <div class="img-slider">
+      <div class="slide active">
+        <img src="images/rij.png" alt="">
+        <div class="info">
+          <h3>The Grand Bazaar (Kapali Carsi)</h3>
+          <p>The Grand Bazaar (Kapali Carsi) is without a doubt is the most popular tourist spot for shopping in Istanbul. The Grand Bazaar is a shopping adventure that you won’t want to miss. A series of covered streets feature over 4,000 merchants all selling their products and wares. You can find anything here from spices, dried fruits, basketry, drapery, haberdashery, boots and slippers to gold and silver jewelry.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/an.png" alt="">
+        <div class="info">
+          <h3>Malls in Istanbul</h3>
+          <p>Istanbul also hosts more than 200 modern shopping malls. And some of them are really very huge and amongst the best shopping malls in Europe. The Kanyon, Metrocity and Akmerkez in the Levent district; the Istinye Park in Maslak, the Cevahir in Mecidiyekoy are the most popular shopping malls in Istanbul, on the European side that worth a visit.The Emaar Square Mall in Uskudar, Capitol in Altunizade, Palladium and Brandium in Atasehir and Viaport next to Sabiha Gokcen Airport (SAW) are the popular ones in the Asia side.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/van.png" alt="">
+        <div class="info">
+          <h3>Religion</h3>
+          <p>The urban landscape of Istanbul is shaped by its many religious communities. The most populous religion is Islam. Istanbul was the final seat of the Islamic Caliphate, between 1517 and 1924. The supposed personal belongings of the prophet Muhammad and the earliest Caliphs who followed him are today preserved in the Topkapı Palace, the Eyüp Sultan Mosque and in several other prominent mosques of Istanbul. Religious minorities include Greek Orthodox Christians, Armenian Christians, Catholic Levantines and Sephardic Jews. Some districts have sizable populations of these ethnic groups.Following the Turkish conquest of Constantinople in 1453, the various ethnic groups were to be governed by a group of institutions based on faith. Many of the internal affairs of these communities were assigned to the administration of their religious authorities, such as the Ecumenical Patriarchate for the affairs of Orthodox Christians, the Armenian Patriarchate for the affairs of the Armenian Christians, and later the Grand Rabbi for the affairs of the Jews.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/jor.jpg" alt="">
+        <div class="info">
+          <h3>Jordaan</h3>
+          <p>Jordaan is the most mainstream of Istanbul's areas and is notable for its blend of local locations with garden patios, energetic business sectors, and upscale stores and restaurants. The zone is additionally home to a lot of fun activities, from going for a lovely walk along the numerous pleasant roads to investing energy visiting the many first class vacation spots situated here.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/1.png" alt="">
+        <div class="info">
+          <h3>Taksim and around</h3>
+          <p>Taksim is a the modern and cosmopolitan part of the city and hosts wide range of shopping places with numerous big brands located on and around the famous Istiklal Street. The 2 km. long pedestrian Istiklal street has many famous and neo-classical passages with variety of fantastic shops ranging from vintage clothing to hand made ceramics, as well as more than 100 year old traditional shops and sweet cafes and pubs.The Sishane, Galata, Karakoy, Cukurcuma and Cihangir are the other popular neighborhoods located near Taksim that are all full of great designer and antiques shops, vintage stores and bookshops. Cukurcuma is famous for its antiques. The Nisantasi neighborhood very close to Taksim is famous for its with world brands and local designer clothing shops.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+		</div><br><br>
+		<div class="content">
+			<h2 style="text-align: center" class="card-head">Explore more</h2><br>
+			<div class="add">
+				<div class="additems">
+					<div class="addcard">
+						<img class="img-card" src="images/food.jpg"/>
+						<div class="content-card">
+							<h3 class="card-head">What to eat</h3>
+							<p class="text-card">Through the broadly uncurtained windows of any home, you'll still probably spot good dishes moored by meat, pureed potatoes and kale. Be that as it may, Turkish food is developing, with another age of gourmet experts modernizing exemplary dishes. Some of the best restaurants in the city are Jansz,De Kas,Wilde Zwijnen and Sotto Pizza. The neighbourhoods of this amazing place will be oozing with great aromas from different houses. The food is amazingly good and healthy.</p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="additems">
+					<div class="addcard">
+						<img class="img-card" src="images/hot.jpg"/>
+						<div class="content-card">
+							<h3 class="card-head">Where to sleep </h3>
+							<p class="text-card">.When you ride a bicycle down Istanbul's streets, zooming past lovely houses, green parks, and stream trenches, you'll never need to leave this supernatural city. Picking the opportune spot in Istanbul can be distressing, and in the event that you're doing whatever it takes not to blend with the insane alcoholic travelers and stag parties, there are sure areas to maintain a strategic distance from. To name a few quite areas like Cityhub Istanbul and Hotel Weber.</p>
+						</div>
+						
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+
+<section class="goes" style="background-color: #fff">
+		<h2>Get to know more about the city of Istanbul by subcribing to our newsletters.</h2>
+		<p></p>
+		<a href="connect with us.html" class="gobutton">Learn More</a>
+	</section><br><br>
+
+ <footer>
+ 	<p>Copyright &copy; Innocent Miti  2021</p>
+ </footer>
+
+
+
+</body>
+</html>
